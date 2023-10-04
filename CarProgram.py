@@ -45,6 +45,7 @@ alberta_towns = [
     "Medicine",
     "Pincher",
     "Creek,",
+    "Whitecourt,",
 ]
 fullDealerString = []
 
