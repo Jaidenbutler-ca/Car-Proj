@@ -49,7 +49,7 @@ alberta_towns = [
 ]
 fullDealerString = []
 
-while page_number <= 100:
+while page_number <= 1:
     URL = f"https://www.carpages.ca/used-cars/search/?num_results=50&province_code=ab&p=={page_number}"
     page = requests.get(URL)
     print(URL)
@@ -81,7 +81,7 @@ df.to_csv('car.csv', index=False, encoding='utf-8')
 fullDealerString = df["dealer"]
 
 # Getting the CSV file
-data = pd.read_csv (r'C:\Users\jaide\OneDrive\Desktop\Python_VSCode\car.csv')
+data = pd.read_csv (r'C:\Users\School\OneDrive - NAIT\Documents\GitHub\Car-Proj\car.csv')
 df = pd.DataFrame(data)
 
 # splitting year from substring
@@ -112,15 +112,11 @@ for x in thirdWord:
 
 df["dealer"] = df["dealer"] + " " + thirdWord
 
-#
-# Working Here!
-#
-
 df["dealer"] = df["dealer"] + " " + fourthWord
 
 # connecting to SQL database
 cnxn_str = ("Driver={ODBC Driver 18 for SQL Server};"
-            "Server=Jaidenbutler-ca\SQLEXPRESS;"
+            "Server=DESKTOP-H10UUI9\SQLEXPRESS;"
             "Database=car;"
             "Trusted_Connection=yes;")
 cnxn = pyodbc.connect(cnxn_str)

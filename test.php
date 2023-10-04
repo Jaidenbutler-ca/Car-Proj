@@ -1,10 +1,15 @@
 <?php
-    $mysqli = new mysqli("Localhost","python","Weemee12","car","1433");
+    $user = "localhost";
+    $pass = "aw";
 
-    if ($mysqli -> connect_errno) {
-        echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
-        exit();
-    }
-    else {
-        echo "Connected to MySQL";
-    }
+
+    $ODBCConnection = odbc_connect("DRIVER={ODBC Driver 18 for SQL Server};SERVER=DESKTOP-H10UUI9\SQLEXPRESS;Database=car", "gang", "091516");
+
+    $query = "SELECT * FROM info";
+    $RecordSet = odbc_exec($ODBCConnection, $query);
+
+        while (odbc_fetch_row($RecordSet)) {
+            $result = odbc_result_all($RecordSet, "border=1");
+        }
+        odbc_close($ODBCConnection);
+    ?>
