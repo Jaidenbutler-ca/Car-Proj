@@ -1,7 +1,12 @@
+# Test Worked
+# Time to Run to 100: 1:30.00
+# 277.78% more efficient
+
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import pyodbc
+import concurrent.futures
 global x
 global thirdWord
 global fourthWord
@@ -49,13 +54,13 @@ alberta_towns = [
 ]
 fullDealerString = []
 
-while page_number <= 1:
-    URL = f"https://www.carpages.ca/used-cars/search/?num_results=50&province_code=ab&p=={page_number}"
-    page = requests.get(URL)
-    print(URL)
-
-    soup = BeautifulSoup(page.content, "html.parser")
-
+# Working here
+# Working here
+# Working here
+def scrape_page(page_number):
+    url = f"https://www.carpages.ca/used-cars/search/?num_results=50&province_code=ab&p=={page_number}"
+    responce = requests.get(url)
+    soup = BeautifulSoup(responce.content, "html.parser")
     results = soup.find(id="")
     car_elements = results.find_all("div", class_="media__content")
 
@@ -64,6 +69,7 @@ while page_number <= 1:
         name_element = car_element.find("a", class_="")
         price.append(price_element.text.strip())
         name.append(name_element.text.strip())
+        print(page_number)
 
     location_elements = results.find_all("div", class_="l-column l-column--large-4 grey vehicle__card--dealer")
 
@@ -72,17 +78,28 @@ while page_number <= 1:
         city_element = location_element.find("p", class_="hN")
         dealer.append(location_element.text.strip())
         city.append(city_element.text.strip())
+        print(page_number)
 
-    page_number += 1
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    page_number = range(1,50)
+    executor.map(scrape_page, page_number)
+    print(page_number)
+
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    page_number = range(51,100)
+    executor.map(scrape_page, page_number)
+    print(page_number)
 
 df = pd.DataFrame({'price': price, 'name': name, 'dealer': dealer, 'city': city})
 df.to_csv('car.csv', index=False, encoding='utf-8')
 
-fullDealerString = df["dealer"]
+# all the data cleaning goes on here
 
 # Getting the CSV file
-data = pd.read_csv (r'C:\Users\School\OneDrive - NAIT\Documents\GitHub\Car-Proj\car.csv')
+data = pd.read_csv (r'C:\Users\jaide\OneDrive\Documents\GitHub\Car-Proj\car.csv')
 df = pd.DataFrame(data)
+
+fullDealerString = df["dealer"]
 
 # splitting year from substring
 df["year"] = df["name"].str.split().str[0]
@@ -114,9 +131,10 @@ df["dealer"] = df["dealer"] + " " + thirdWord
 
 df["dealer"] = df["dealer"] + " " + fourthWord
 
+
 # connecting to SQL database
 cnxn_str = ("Driver={ODBC Driver 18 for SQL Server};"
-            "Server=DESKTOP-H10UUI9\SQLEXPRESS;"
+            "Server=JAIDENBUTLER-CA\SQLEXPRESS;"
             "Database=car;"
             "Trusted_Connection=yes;")
 cnxn = pyodbc.connect(cnxn_str)
