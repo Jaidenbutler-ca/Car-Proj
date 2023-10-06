@@ -11,10 +11,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div ="Top_Of_Page">
+    <div class="Top_Of_Page">
         <h1>Vehicle Display Test</h1>
+        <img id="Placeholder_Image"src="placeholder.jpg" style="width:500px;height:500px;" alt="Placeholder Image">
 
-        <table>
+        <table class="Top_Of_Page">
             <tr>
                 <th>Year</th>
                 <th>Make</th>
@@ -33,5 +34,34 @@
             </tr>
         </table>
     </div>
+
+
+    <!-- Testing Here -->
+
+<label for="selectMake">Make:</label>
+<select name="selectMake" id="selectMake">
+    <option value="Any" 
+    selected>Any</option>
+    <option value="Acura">Acura</option>
+    <option value="BMW">BMW</option>
+    <option value="Chevrolet">Chevrolet</option>
+    <option value="Dodge">Dodge</option>
+    <option value="Ford">Ford</option>
+    <option value="GMC">GMC</option>
+    <option value="Honda">Honda</option>
+    <option value="Hyundai">Hyundai</option>
+    <option value="Infiniti">Infiniti</option>
+    <option value="Jeep">Jeep</option>
+    <option value="Kia">Kia</option>
+    <option value="Mercedes-Benz">Mercedes-Benz</option>
+    <option value="Nissan">Nissan</option>
+    <option value="Porsche">Porsche</option>
+    <option value="RAM">RAM</option>
+    <option value="Toyota">Toyota</option>
+</select>
+
+
+
+
 </body>
 </html>

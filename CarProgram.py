@@ -2,6 +2,10 @@
 # Time to Run to 100: 1:30.00
 # 277.78% more efficient
 
+# Desktop SQL Server Location: DESKTOP-H10UUI9\SQLEXPRESS
+# Desktop car.csv location: C:\Users\School\OneDrive - NAIT\Documents\GitHub\Car-Proj\car.csv
+#
+
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -96,7 +100,7 @@ df.to_csv('car.csv', index=False, encoding='utf-8')
 # all the data cleaning goes on here
 
 # Getting the CSV file
-data = pd.read_csv (r'C:\Users\jaide\OneDrive\Documents\GitHub\Car-Proj\car.csv')
+data = pd.read_csv (r'C:\Users\School\OneDrive - NAIT\Documents\GitHub\Car-Proj\car.csv')
 df = pd.DataFrame(data)
 
 fullDealerString = df["dealer"]
@@ -134,7 +138,7 @@ df["dealer"] = df["dealer"] + " " + fourthWord
 
 # connecting to SQL database
 cnxn_str = ("Driver={ODBC Driver 18 for SQL Server};"
-            "Server=JAIDENBUTLER-CA\SQLEXPRESS;"
+            "Server=DESKTOP-H10UUI9\SQLEXPRESS;"
             "Database=car;"
             "Trusted_Connection=yes;")
 cnxn = pyodbc.connect(cnxn_str)
