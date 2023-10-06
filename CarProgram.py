@@ -89,10 +89,10 @@ with concurrent.futures.ThreadPoolExecutor() as executor:
     executor.map(scrape_page, page_number)
     print(page_number)
 
-#  with concurrent.futures.ThreadPoolExecutor() as executor:
-#    page_number = range(51,100)
-#    executor.map(scrape_page, page_number)
-#    print(page_number)
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    page_number = range(51,100)
+    executor.map(scrape_page, page_number)
+    print(page_number)
 
 df = pd.DataFrame({'price': price, 'name': name, 'dealer': dealer, 'city': city})
 df.to_csv('car.csv', index=False, encoding='utf-8')
