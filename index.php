@@ -60,8 +60,17 @@
     <option value="Toyota">Toyota</option>
 </select>
 
+<label for="inputYear">Year:</label>
+<input type="text" id="inputYear" name="inputYear" placeholder="Year">
 
+<label for="inputModel">Model:</label>
+<input type="text" id="inputModel" name="inputModel" placeholder="Model">
 
+<label for="MinPrice">Min Price:</label>
+<input type="text" id="MinPrice" name="MinPrice" placeholder="Min Price">
+
+<label for="MaxPrice">Max Price:</label>
+<input type="text" id="MaxPrice" name="MaxPrice" placeholder="Max Price">
 
 </body>
 </html>
