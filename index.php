@@ -11,6 +11,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $makeVariable = $_POST["selectMake"];
+            $modelVariable = $_POST["inputModel"];
+            $yearVariable = $_POST["inputYear"];
+            $minPriceVariable = $_POST["MinPrice"];
+            $maxPriceVariable = $_POST["MaxPrice"];
+            // Save $makeVariable to a session variable
+            $_SESSION["makeVariable"] = $makeVariable;
+            header("Location: index.php?make= " . urlencode($makeVariable));
+        }
+        session_start();
+        if (isset($GET["make"])) {
+            $makeVariable = $_GET["make"];
+        }
+    ?>
     <div class="Top_Of_Page">
         <h1>Vehicle Display Test</h1>
         <img id="Placeholder_Image"src="placeholder.jpg" style="width:500px;height:500px;" alt="Placeholder Image">
@@ -35,9 +52,13 @@
         </table>
     </div>
 
+    <!-- making a variable to hold the make in order to use it for search -->
+
 
     <!-- Testing Here -->
 
+
+<form method="post">
 <label for="selectMake">Make:</label>
 <select name="selectMake" id="selectMake">
     <option value="Any" 
@@ -59,6 +80,8 @@
     <option value="RAM">RAM</option>
     <option value="Toyota">Toyota</option>
 </select>
+<button type="submit">Submit</button>
+    </form>
 
 <label for="inputYear">Year:</label>
 <input type="text" id="inputYear" name="inputYear" placeholder="Year">

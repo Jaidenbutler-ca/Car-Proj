@@ -6,6 +6,8 @@
     $makeVariable = '%';
     $modelVariable = '%';
     $yearVariable =  '%';
+    $minePriceVariable = 0;
+    $maxPriceVariable = 999999999; # 9 9's
 
 
     $ODBCConnection = odbc_connect("DRIVER={ODBC Driver 18 for SQL Server};SERVER=DESKTOP-H10UUI9\SQLEXPRESS;Database=car", "gang", "091516");
