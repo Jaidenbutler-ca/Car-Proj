@@ -15,10 +15,7 @@
 <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $makeVariable = $_POST["selectMake"];
-            $modelVariable = $_POST["inputModel"];
-            $yearVariable = $_POST["inputYear"];
-            $minPriceVariable = $_POST["MinPrice"];
-            $maxPriceVariable = $_POST["MaxPrice"];
+   
             // Save $makeVariable to a session variable
             $_SESSION["makeVariable"] = $makeVariable;
             header("Location: index.php?make= " . urlencode($makeVariable));
