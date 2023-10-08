@@ -58,7 +58,7 @@
     <!-- Testing Here -->
 
 
-<form method="post">
+<form method="POST">
 <label for="selectMake">Make:</label>
 <select name="selectMake" id="selectMake">
     <option value="Any" 
