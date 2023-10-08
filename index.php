@@ -18,9 +18,15 @@
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $makeVariable = $_POST["selectMake"];
+            $modelVariable = $_POST["selectModel"];
+            $yearMinVariable = $_POST["selectYearMin"];
+            $yearMaxVariable = $_POST["selectYearMax"];
    
             // Save $makeVariable to a session variable
             $_SESSION["makeVariable"] = $makeVariable;
+            $_SESSION["modelVariable"] = $modelVariable;
+            $_SESSION["yearMinVariable"] = $yearMinVariable;
+            $_SESSION["yearMaxVariable"] = $yearMaxVariable;
 
             header("Location: index.php");
             exit();
@@ -30,6 +36,25 @@
         } else {
             $makeVariable = "";
         }
+
+        if (isset($_SESSION["modelVariable"])) {
+            $modelVariable = $_SESSION["modelVariable"];
+        } else {
+            $modelVariable = "";
+        }
+
+        if (isset($_SESSION["yearMinVariable"])) {
+            $yearMinVariable = $_SESSION["yearMinVariable"];
+        } else {
+            $yearMinVariable = 0;
+        }
+
+        if (isset($_SESSION["yearMaxVariable"])) {
+            $yearMaxVariable = $_SESSION["yearMaxVariable"];
+        } else {
+            $yearMaxVariable = 2025;
+        }
+
 
         
         include ("test.php");
@@ -88,24 +113,15 @@
                 <option value="RAM">RAM</option>
                 <option value="Toyota">Toyota</option>
             </select>
-
-
-
-
-
-
         <label for="inputModel">Model:</label>
-        <input type="text" id="inputModel" name="selectModel" placeholder="Model" />
+        <input type="text" id="selectModel" name="selectModel" placeholder="Model" value="%"/>
 
 
+        <label for="MinPrice">Min Year:</label>
+        <input type="text" id="selectYearMin" name="selectYearMin" placeholder="Select Year Min" value="0"/>
 
-
-
-        <label for="MinPrice">Min Price:</label>
-        <input type="text" id="MinPrice" name="MinPrice" placeholder="Min Price" />
-
-        <label for="MaxPrice">Max Price:</label>
-        <input type="text" id="MaxPrice" name="MaxPrice" placeholder="Max Price" />
+        <label for="MaxPrice">Max Year:</label>
+        <input type="text" id="selectYearMax" name="selectYearMax" placeholder="Select Year Max" value="9999"/>
 
 
         <!-- dont fucking touch this -->
