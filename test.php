@@ -3,7 +3,7 @@
 $modelVariable = "%";
 $makeVariable = "%";
 $yearMinVariable = 0;
-$yearMaxVariable = 2025;
+$yearMaxVariable = 2050;
 $minPrice = '%';
 $maxPrice = '';
 
