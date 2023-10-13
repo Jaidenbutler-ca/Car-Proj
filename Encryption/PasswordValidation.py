@@ -21,7 +21,7 @@ data = pd.read_csv (r'password.csv')
 df = pd.DataFrame(data)
 
 cnxn_str = ("Driver={ODBC Driver 18 for SQL Server};"
-            "Server=DESKTOP-H10UUI9\SQLEXPRESS;"
+            "Server=JAIDENBUTLER-CA\SQLEXPRESS;"
             "Database=car;"
             "Trusted_Connection=yes;")
 cnxn = pyodbc.connect(cnxn_str)

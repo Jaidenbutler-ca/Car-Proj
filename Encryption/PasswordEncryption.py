@@ -63,7 +63,7 @@ df = pd.DataFrame(data)
 
 # Connection to my database (fuckin yeeted that code from CarProgram.py)
 cnxn_str = ("Driver={ODBC Driver 18 for SQL Server};"
-            "Server=DESKTOP-H10UUI9\SQLEXPRESS;"
+            "Server=JAIDENBUTLER-CA\SQLEXPRESS;"
             "Database=car;"
             "Trusted_Connection=yes;")
 cnxn = pyodbc.connect(cnxn_str)
