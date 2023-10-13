@@ -49,8 +49,6 @@ hashedPasswordArray.append(hashedPassword)
 
 df = pd.DataFrame({'Username': usernameArray, 'Key': saltArray, 'Hash': hashedPasswordArray})
 
-display(df)
-
 # df.loc[len(df.index)] = [usernameArray, saltArray, hashedPasswordArray]
 
 df.to_csv('password.csv', index=False, encoding='utf-8')
@@ -65,7 +63,7 @@ df = pd.DataFrame(data)
 
 # Connection to my database (fuckin yeeted that code from CarProgram.py)
 cnxn_str = ("Driver={ODBC Driver 18 for SQL Server};"
-            "Server=JAIDENBUTLER-CA\SQLEXPRESS;"
+            "Server=DESKTOP-H10UUI9\SQLEXPRESS;"
             "Database=car;"
             "Trusted_Connection=yes;")
 cnxn = pyodbc.connect(cnxn_str)
