@@ -15,8 +15,6 @@ password = ''
 username = input('Enter your username: ')
 password = input('Enter your password: ')
 
-
-
 data = pd.read_csv (r'password.csv')
 df = pd.DataFrame(data)
 
@@ -51,9 +49,6 @@ else:
     h.update(bytePassword)
 
     hashedPassword = h.hexdigest()
-
-    print(hashedPassword)
-
 
     if hashedPassword == dataHash:
         print('Password is correct')
